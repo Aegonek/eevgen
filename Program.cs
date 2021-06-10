@@ -1,6 +1,7 @@
 ﻿using Mutagen.Bethesda.Skyrim;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace eevgen
 {
@@ -13,13 +14,19 @@ namespace eevgen
             {
                 Arguments parsed = Arguments.Parse(args);
                 ISkyrimMod mod = SkyrimMod.CreateFromBinary(parsed.ModPath, SkyrimRelease.SkyrimSE);
-                IWorker generator = new EnchantedVariantsGenerator();
-                generator.Work(mod, logger, parsed);
+                
+                IWorker generator = new GenerateEnchantedWeaponVariants(mod, logger, parsed);
+                generator.Work();
             }
             catch (Exception ex)
             {
                 logger.Error("Unexpected error! " + ex.Message);
             }
+        }
+
+        static void Backup(string path)
+        {
+            File.Copy(path, path.Replace(".esp", "") + $"_backup_{DateTime.Now.ToShortTimeString()}.xml");
         }
     }
 }

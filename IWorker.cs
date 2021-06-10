@@ -9,6 +9,6 @@ namespace eevgen
 {
     interface IWorker
     {
-        void Work(ISkyrimMod mod, Logger Logger, Arguments args);
+        void Work();
     }
 }

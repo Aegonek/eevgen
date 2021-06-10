@@ -6,7 +6,7 @@ namespace eevgen
 {
     class Arguments
     {
-        const string HowToFormatMessage = "Please use the following format: 'eevgen \"C:/Program Files/Steam/steammaps/common/Skyrim/Data\" \"Thaumaturgy - An Enchanting Overhaul.esp\"'";
+        const string HowToFormatMessage = "Please use the following format: 'eevgen \"C:/Program Files/Steam/steammaps/common/Skyrim/Data\" \"C:/Program Files/Steam/steammaps/common/Skyrim/Data/Thaumaturgy - An Enchanting Overhaul.esp\"'";
 
         public string DataFolderPath { get; }
         public string ModPath { get; }
